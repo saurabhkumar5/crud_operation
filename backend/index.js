@@ -29,6 +29,12 @@ app.post('/createUser',(req,res)=>{
    .catch(err=>res.json(err))
 })
 
+app.delete('/deleteUser/:kuchbhi',(req,res)=>{
+            const id  = req.params.kuchbhi;
+            UserModel.findByIdAndDelete({_id:id})
+            .then(res=>res.json(res))
+            .catch(err=>res.json(err))
+})
 
 app.listen(8000,()=>{
     console.log("server is started")
